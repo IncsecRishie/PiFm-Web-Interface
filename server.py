@@ -16,7 +16,7 @@ def index():
             global process
             if process:
                 process.terminate()
-            command = ['sudo', './fm_transmitter', '-f', frequency, filepath]
+            command = ['sudo', './home/kali/fm_transmitter/fm_transmitter', '-f', frequency, filepath]
             process = subprocess.Popen(command)
             return redirect(url_for('index'))
     return render_template('index.html', frequency='105.1')
