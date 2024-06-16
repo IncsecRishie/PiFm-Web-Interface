@@ -4,21 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FM Transmitter</title>
+    <style>
+        /* Bootstrap CSS */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+        }
+        .card {
+            box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
+        }
+        .card-header {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+            font-size: 1.5rem;
+        }
+        .card-body {
+            padding: 1.5rem;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .btn-primary, .btn-danger {
+            width: 100%;
+            padding: 0.75rem;
+            font-size: 1rem;
+        }
+    </style>
 </head>
 <body>
-    <h1>FM Transmitter Control</h1>
-    <form method="post" enctype="multipart/form-data">
-        <label for="frequency">Frequency (MHz):</label>
-        <input type="text" id="frequency" name="frequency" value="{{ frequency }}">
-        <br><br>
-        <label for="file">Select WAV file:</label>
-        <input type="file" id="file" name="file">
-        <br><br>
-        <button type="submit">Start Transmission</button>
-    </form>
-    <br>
-    <form method="post" action="{{ url_for('stop') }}">
-        <button type="submit">Stop Transmission</button>
-    </form>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h1>FM Transmitter Control</h1>
+            </div>
+            <div class="card-body">
+                <form method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="frequency">Frequency (MHz):</label>
+                        <input type="text" id="frequency" name="frequency" class="form-control" value="{{ frequency }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="file">Select WAV file:</label>
+                        <input type="file" id="file" name="file" class="form-control-file">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Start Transmission</button>
+                    </div>
+                </form>
+                <form method="post" action="{{ url_for('stop') }}">
+                    <button type="submit" class="btn btn-danger">Stop Transmission</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
