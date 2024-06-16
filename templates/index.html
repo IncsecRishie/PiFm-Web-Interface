@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FM Transmitter</title>
+</head>
+<body>
+    <h1>FM Transmitter Control</h1>
+    <form method="post" enctype="multipart/form-data">
+        <label for="frequency">Frequency (MHz):</label>
+        <input type="text" id="frequency" name="frequency" value="{{ frequency }}">
+        <br><br>
+        <label for="file">Select WAV file:</label>
+        <input type="file" id="file" name="file">
+        <br><br>
+        <button type="submit">Start Transmission</button>
+    </form>
+    <br>
+    <form method="post" action="{{ url_for('stop') }}">
+        <button type="submit">Stop Transmission</button>
+    </form>
+</body>
+</html>
